@@ -55,4 +55,14 @@ git commit -m "Add LambdaTest Cypress action"
 git push
 ```
 
+## Input variables
+
+See [action.yml](./action.yml) for more detailed information.
+
+| Input Parameter | Description                                                   | Default Value |
+| --------------- | ------------------------------------------------------------- | ------------- |
+| USERNAME        | LambdaTest username                                           |               |
+| ACCESS_KEY      | LambdaTest access key                                         |               |
+| include_deps    | Copy dependencies from package.json to lambdatest-config.json | false         |
+
 Your tests should now be running on LambdaTest.
