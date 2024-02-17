@@ -1,0 +1,18 @@
+name: "LambdaTest Cypress action"
+description: "Integrate Cypress tests with LambdaTest."
+author: "DawsonCodes"
+
+inputs:
+  USERNAME:
+    description: "LambdaTest username."
+    required: true
+  ACCESS_KEY:
+    description: "LambdaTest access key."
+    required: true
+  include_deps:
+    description: "Moves dependencies and dev dependencies from your package.json file to the lambdatest-config.json file."
+    default: false
+
+runs:
+  using: "node20"
+  main: "dist/index.js"

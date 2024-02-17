@@ -1,0 +1,31 @@
+{
+  "name": "lt-cypress-action",
+  "version": "1.0.0",
+  "description": "GitHub action to deploy LambdaTest Cypress tests easily",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "watch": "tsc -w",
+    "build": "rm -rf dist/ && esbuild src/index.ts --bundle --target=es2017 --platform=node --outfile=dist/index.js"
+  },
+  "keywords": [
+    "lambdatest",
+    "cypress",
+    "github",
+    "action",
+    "CI/CD"
+  ],
+  "author": "DawsonCodes",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "esbuild": "^0.20.0",
+    "lambdatest-cypress-cli": "^3.0.26",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/exec": "^1.1.1",
+    "package-json": "^9.0.0"
+  }
+}
