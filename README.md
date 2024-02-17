@@ -8,15 +8,15 @@ To use the action, you need to initialize your LambdaTest configuration in your 
 
 - Install the cli
 
-````bash
+```bash
 npm install -g lambdatest-cypress-cli
-``
+```
 
 - Initialize the configuration
 
 ```bash
 lambdatest-cypress init
-````
+```
 
 - Add the action to your workflow
 
@@ -55,6 +55,8 @@ git commit -m "Add LambdaTest Cypress action"
 git push
 ```
 
+Your tests should now be running on LambdaTest 🥳🚀
+
 ## Input variables
 
 See [action.yml](./action.yml) for more detailed information.
@@ -64,5 +66,3 @@ See [action.yml](./action.yml) for more detailed information.
 | USERNAME        | LambdaTest username                                           |               |
 | ACCESS_KEY      | LambdaTest access key                                         |               |
 | include_deps    | Copy dependencies from package.json to lambdatest-config.json | false         |
-
-Your tests should now be running on LambdaTest.
