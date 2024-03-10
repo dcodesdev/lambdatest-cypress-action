@@ -25,11 +25,6 @@ steps:
   - name: Checkout
     uses: actions/checkout@v2
 
-  - name: Set up Node.js
-    uses: actions/setup-node@v2
-    with:
-      node-version: "20"
-
   - name: Run test on LambdaTest
     uses: dawsoncodes/lambdatest-cypress-action@v0.0.1
     with:
@@ -44,8 +39,6 @@ steps:
 USERNAME: your-lambdatest-username
 ACCESS_KEY: your-lambdatest-access-key
 ```
-
-> Note: The action depends on NodeJS to be installed before running the action. Make sure you have `actions/setup-node` action before running this action.
 
 - Push the changes to your repository
 
