@@ -20231,6 +20231,10 @@ var runLambdaTestCli = async () => {
   const { base_path } = getActionInputs();
   if (base_path) {
     process.chdir(base_path);
+    console.log(
+      // console current working directory
+      process.cwd()
+    );
   }
   const command = ["lambdatest-cypress", "run"];
   await (0, import_exec.exec)(command.join(" "));
