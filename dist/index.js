@@ -20204,12 +20204,14 @@ var getActionInputs = () => {
   const LT_ACCESS_KEY = (0, import_core.getInput)("LT_ACCESS_KEY");
   const base_path = (0, import_core.getInput)("base_path");
   const lambdatest_config_file = (0, import_core.getInput)("lambdatest_config_file");
+  const build_name = (0, import_core.getInput)("build_name");
   return {
     LT_USERNAME,
     LT_ACCESS_KEY,
     include_deps,
     base_path,
-    lambdatest_config_file
+    lambdatest_config_file,
+    build_name
   };
 };
 
@@ -20230,7 +20232,7 @@ var updateCredentials = async () => {
 // src/command.ts
 var import_exec = __toESM(require_exec());
 var runLambdaTestCli = async () => {
-  const { base_path, lambdatest_config_file } = getActionInputs();
+  const { base_path, lambdatest_config_file, build_name } = getActionInputs();
   if (base_path) {
     process.chdir(base_path);
     console.log(`Changed directory to ${process.cwd()}`);
@@ -20239,6 +20241,9 @@ var runLambdaTestCli = async () => {
   const args = [];
   if (lambdatest_config_file) {
     args.push("--lambdatest-config-file", lambdatest_config_file);
+  }
+  if (build_name) {
+    args.push("--build-name", build_name);
   }
   await (0, import_exec.exec)(command, args);
 };

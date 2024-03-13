@@ -5,7 +5,7 @@ import { getActionInputs } from "./utils"
  * The function that runs the lambdatest-cypress cli
  */
 export const runLambdaTestCli = async () => {
-  const { base_path, lambdatest_config_file } = getActionInputs()
+  const { base_path, lambdatest_config_file, build_name } = getActionInputs()
 
   if (base_path) {
     process.chdir(base_path)
@@ -18,6 +18,10 @@ export const runLambdaTestCli = async () => {
 
   if (lambdatest_config_file) {
     args.push("--lambdatest-config-file", lambdatest_config_file)
+  }
+
+  if (build_name) {
+    args.push("--build-name", build_name)
   }
 
   await exec(command, args)

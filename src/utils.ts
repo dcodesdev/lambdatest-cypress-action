@@ -43,6 +43,7 @@ export const getActionInputs = (): ActionInputs => {
   const LT_ACCESS_KEY = getInput("LT_ACCESS_KEY")
   const base_path = getInput("base_path")
   const lambdatest_config_file = getInput("lambdatest_config_file")
+  const build_name = getInput("build_name")
 
   return {
     LT_USERNAME,
@@ -50,6 +51,7 @@ export const getActionInputs = (): ActionInputs => {
     include_deps,
     base_path,
     lambdatest_config_file,
+    build_name,
   }
 }
 

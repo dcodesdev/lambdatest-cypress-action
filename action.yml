@@ -16,6 +16,8 @@ inputs:
     description: "The directory where the lambdatest-config.json file is located."
   lambdatest_config_file:
     description: "Path to the lambdatest-config.json file."
+  build_name:
+    description: "The name of the LambdaTest build."
 
 runs:
   using: "node20"

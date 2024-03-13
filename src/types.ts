@@ -52,4 +52,5 @@ export interface ActionInputs {
    */
   base_path?: string
   lambdatest_config_file?: string
+  build_name?: string
 }
