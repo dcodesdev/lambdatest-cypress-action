@@ -20242,6 +20242,7 @@ var getActionInputs = () => {
   const network_http2 = (0, import_core.getBooleanInput)("network_http2");
   const network_ws = (0, import_core.getBooleanInput)("network_ws");
   const network_sse = (0, import_core.getBooleanInput)("network_sse");
+  const args = (0, import_core.getInput)("args");
   return {
     LT_USERNAME,
     LT_ACCESS_KEY,
@@ -20285,7 +20286,8 @@ var getActionInputs = () => {
     retry_failed,
     network_http2,
     network_ws,
-    network_sse
+    network_sse,
+    args
   };
 };
 
@@ -20306,7 +20308,19 @@ var updateCredentials = async () => {
 // src/command.ts
 var import_exec = __toESM(require_exec());
 var runLambdaTestCli = async () => {
-  const _a = getActionInputs(), { base_path, LT_ACCESS_KEY, LT_USERNAME, include_deps } = _a, cmdArgs = __objRest(_a, ["base_path", "LT_ACCESS_KEY", "LT_USERNAME", "include_deps"]);
+  const _a = getActionInputs(), {
+    base_path,
+    LT_ACCESS_KEY,
+    LT_USERNAME,
+    include_deps,
+    args: additionalArgs
+  } = _a, cmdArgs = __objRest(_a, [
+    "base_path",
+    "LT_ACCESS_KEY",
+    "LT_USERNAME",
+    "include_deps",
+    "args"
+  ]);
   if (base_path) {
     process.chdir(base_path);
     console.log(`Changed directory to ${process.cwd()}`);
@@ -20326,6 +20340,9 @@ var runLambdaTestCli = async () => {
     if (typeof value === "string") {
       args.push(`--${key}`, value);
     }
+  }
+  if (additionalArgs) {
+    args.push(additionalArgs);
   }
   console.log(`Running command: ${command} ${args.join(" ")}`);
   await (0, import_exec.exec)(command, args);

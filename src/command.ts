@@ -5,8 +5,14 @@ import { getActionInputs } from "./utils"
  * The function that runs the lambdatest-cypress cli
  */
 export const runLambdaTestCli = async () => {
-  const { base_path, LT_ACCESS_KEY, LT_USERNAME, include_deps, ...cmdArgs } =
-    getActionInputs()
+  const {
+    base_path,
+    LT_ACCESS_KEY,
+    LT_USERNAME,
+    include_deps,
+    args: additionalArgs,
+    ...cmdArgs
+  } = getActionInputs()
 
   if (base_path) {
     process.chdir(base_path)
@@ -36,6 +42,10 @@ export const runLambdaTestCli = async () => {
     if (typeof value === "string") {
       args.push(`--${key}`, value)
     }
+  }
+
+  if (additionalArgs) {
+    args.push(additionalArgs)
   }
 
   console.log(`Running command: ${command} ${args.join(" ")}`)
