@@ -1,5 +1,6 @@
 import { getInput } from "@actions/core"
 import { getLambdaTestConfig } from "./utils"
+import { LambdaTestAuth } from "./types"
 
 /**
  * Finds the lambdatest-config.json file and updates the credentials

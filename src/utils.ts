@@ -1,10 +1,10 @@
 import { promises as fs } from "fs"
-import { FullVersion } from "package-json"
+import { LambdaTestConfig, PackageJson } from "./types"
 
 export const getPackageJson = async () => {
   const packageJson = await fs.readFile("package.json", "utf-8")
 
-  return JSON.parse(packageJson) as FullVersion
+  return JSON.parse(packageJson) as PackageJson
 }
 
 export const getLambdaTestConfig = async (path = "lambdatest-config.json") => {
@@ -35,3 +35,5 @@ export const moveDeps = async () => {
 
   await updateConfig(config)
 }
+
+export const getCommandOptions = () => {}

@@ -1,15 +1,15 @@
-interface LambdaTestAuth {
+export interface LambdaTestAuth {
   username: string
   access_key: string
 }
 
-interface Browser {
+export interface Browser {
   browser: string
   platform: string
   versions: string[]
 }
 
-interface RunSettings {
+export interface RunSettings {
   reporter_config_file: string
   build_name: string
   parallels: number
@@ -22,14 +22,22 @@ interface RunSettings {
   }
 }
 
-interface TunnelSettings {
+export interface TunnelSettings {
   tunnel: boolean
   tunnel_name: string | null
 }
 
-interface LambdaTestConfig {
+export interface LambdaTestConfig {
   lambdatest_auth: LambdaTestAuth
   browsers: Browser[]
   run_settings: RunSettings
   tunnel_settings: TunnelSettings
 }
+
+export interface PackageJson {
+  devDependencies: Record<string, string>
+  dependencies: Record<string, string>
+  [key: string]: unknown
+}
+
+export interface CommandOptions {}
