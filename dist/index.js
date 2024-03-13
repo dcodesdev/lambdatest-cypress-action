@@ -19002,7 +19002,7 @@ var require_core = __commonJS({
       process.env["PATH"] = `${inputPath}${path2.delimiter}${process.env["PATH"]}`;
     }
     exports2.addPath = addPath;
-    function getInput2(name, options) {
+    function getInput3(name, options) {
       const val = process.env[`INPUT_${name.replace(/ /g, "_").toUpperCase()}`] || "";
       if (options && options.required && !val) {
         throw new Error(`Input required and not supplied: ${name}`);
@@ -19012,9 +19012,9 @@ var require_core = __commonJS({
       }
       return val.trim();
     }
-    exports2.getInput = getInput2;
+    exports2.getInput = getInput3;
     function getMultilineInput(name, options) {
-      const inputs = getInput2(name, options).split("\n").filter((x) => x !== "");
+      const inputs = getInput3(name, options).split("\n").filter((x) => x !== "");
       if (options && options.trimWhitespace === false) {
         return inputs;
       }
@@ -19024,7 +19024,7 @@ var require_core = __commonJS({
     function getBooleanInput2(name, options) {
       const trueValue = ["true", "True", "TRUE"];
       const falseValue = ["false", "False", "FALSE"];
-      const val = getInput2(name, options);
+      const val = getInput3(name, options);
       if (trueValue.includes(val))
         return true;
       if (falseValue.includes(val))
@@ -20118,7 +20118,7 @@ var require_exec = __commonJS({
     exports2.getExecOutput = exports2.exec = void 0;
     var string_decoder_1 = require("string_decoder");
     var tr = __importStar(require_toolrunner());
-    function exec2(commandLine, args, options) {
+    function exec3(commandLine, args, options) {
       return __awaiter(this, void 0, void 0, function* () {
         const commandArgs = tr.argStringToArray(commandLine);
         if (commandArgs.length === 0) {
@@ -20130,7 +20130,7 @@ var require_exec = __commonJS({
         return runner.exec();
       });
     }
-    exports2.exec = exec2;
+    exports2.exec = exec3;
     function getExecOutput(commandLine, args, options) {
       var _a, _b;
       return __awaiter(this, void 0, void 0, function* () {
@@ -20153,7 +20153,7 @@ var require_exec = __commonJS({
           }
         };
         const listeners = Object.assign(Object.assign({}, options === null || options === void 0 ? void 0 : options.listeners), { stdout: stdOutListener, stderr: stdErrListener });
-        const exitCode = yield exec2(commandLine, args, Object.assign(Object.assign({}, options), { listeners }));
+        const exitCode = yield exec3(commandLine, args, Object.assign(Object.assign({}, options), { listeners }));
         stdout += stdoutDecoder.end();
         stderr += stderrDecoder.end();
         return {
@@ -20168,15 +20168,16 @@ var require_exec = __commonJS({
 });
 
 // src/index.ts
-var import_core2 = __toESM(require_core());
-var import_exec = __toESM(require_exec());
 var import_path = __toESM(require("path"));
+var import_core3 = __toESM(require_core());
+var import_exec2 = __toESM(require_exec());
 
 // src/ltAuth.ts
-var import_core = __toESM(require_core());
+var import_core2 = __toESM(require_core());
 
 // src/utils.ts
 var import_fs = require("fs");
+var import_core = __toESM(require_core());
 var getPackageJson = async () => {
   const packageJson = await import_fs.promises.readFile("package.json", "utf-8");
   return JSON.parse(packageJson);
@@ -20197,12 +20198,22 @@ var moveDeps = async () => {
   config.run_settings.npm_dependencies = __spreadValues(__spreadValues(__spreadValues({}, config.run_settings.npm_dependencies), dependencies), devDependencies);
   await updateConfig(config);
 };
+var getActionInputs = () => {
+  const include_deps = (0, import_core.getBooleanInput)("include_deps");
+  const LT_USERNAME = (0, import_core.getInput)("LT_USERNAME");
+  const LT_ACCESS_KEY = (0, import_core.getInput)("LT_ACCESS_KEY");
+  return {
+    include_deps,
+    LT_USERNAME,
+    LT_ACCESS_KEY
+  };
+};
 
 // src/ltAuth.ts
 var updateCredentials = async () => {
   const { config, updateConfig } = await getLambdaTestConfig();
-  const username = (0, import_core.getInput)("LT_USERNAME");
-  const accessKey = (0, import_core.getInput)("LT_ACCESS_KEY");
+  const username = (0, import_core2.getInput)("LT_USERNAME");
+  const accessKey = (0, import_core2.getInput)("LT_ACCESS_KEY");
   const lambdatest_auth = {
     username,
     access_key: accessKey
@@ -20212,29 +20223,37 @@ var updateCredentials = async () => {
   return config;
 };
 
+// src/command.ts
+var import_exec = __toESM(require_exec());
+var runLambdaTestCli = async () => {
+  const {} = getActionInputs();
+  const command = ["lambdatest-cypress", "run"];
+  await (0, import_exec.exec)(command.join(" "));
+};
+
 // src/index.ts
 var main = async () => {
   try {
     await updateCredentials();
-    const includeDeps = (0, import_core2.getBooleanInput)("include_deps");
-    if (includeDeps) {
+    const { include_deps } = getActionInputs();
+    if (include_deps) {
       await moveDeps();
     }
-    await (0, import_exec.exec)(
+    await (0, import_exec2.exec)(
       "git clone https://github.com/Dawsoncodes/lambdatest-cypress-cli"
     );
-    await (0, import_exec.exec)("npm install", [], {
+    await (0, import_exec2.exec)("npm install", [], {
       cwd: import_path.default.join(process.cwd(), "lambdatest-cypress-cli")
     });
-    await (0, import_exec.exec)("npm link", [], {
+    await (0, import_exec2.exec)("npm link", [], {
       cwd: import_path.default.join(process.cwd(), "lambdatest-cypress-cli")
     });
-    await (0, import_exec.exec)("lambdatest-cypress run");
+    await runLambdaTestCli();
   } catch (error) {
     if (error instanceof Error) {
-      return (0, import_core2.setFailed)(error.message);
+      return (0, import_core3.setFailed)(error.message);
     }
-    (0, import_core2.setFailed)(`Error: ${error}`);
+    (0, import_core3.setFailed)(`Error: ${error}`);
   }
 };
 main();

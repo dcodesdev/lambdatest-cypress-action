@@ -1,9 +1,10 @@
+import path from "path"
 import { setFailed } from "@actions/core"
 import { exec } from "@actions/exec"
-import path from "path"
 
 import { updateCredentials } from "./ltAuth"
 import { getActionInputs, moveDeps } from "./utils"
+import { runLambdaTestCli } from "./command"
 
 const main = async () => {
   try {
@@ -29,7 +30,7 @@ const main = async () => {
       cwd: path.join(process.cwd(), "lambdatest-cypress-cli"),
     })
 
-    await exec("lambdatest-cypress run")
+    await runLambdaTestCli()
   } catch (error) {
     if (error instanceof Error) {
       return setFailed(error.message)
