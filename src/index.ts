@@ -1,17 +1,17 @@
-import { setFailed, getBooleanInput } from "@actions/core"
+import { setFailed } from "@actions/core"
 import { exec } from "@actions/exec"
 import path from "path"
 
 import { updateCredentials } from "./ltAuth"
-import { moveDeps } from "./utils"
+import { getActionInputs, moveDeps } from "./utils"
 
 const main = async () => {
   try {
     await updateCredentials()
 
-    const includeDeps = getBooleanInput("include_deps")
+    const { include_deps } = getActionInputs()
 
-    if (includeDeps) {
+    if (include_deps) {
       await moveDeps()
     }
 

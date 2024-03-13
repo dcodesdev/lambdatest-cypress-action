@@ -1,5 +1,6 @@
 import { promises as fs } from "fs"
-import { LambdaTestConfig, PackageJson } from "./types"
+import { ActionInputs, LambdaTestConfig, PackageJson } from "./types"
+import { getBooleanInput, getInput } from "@actions/core"
 
 export const getPackageJson = async () => {
   const packageJson = await fs.readFile("package.json", "utf-8")
@@ -34,6 +35,18 @@ export const moveDeps = async () => {
   }
 
   await updateConfig(config)
+}
+
+export const getActionInputs = (): ActionInputs => {
+  const include_deps = getBooleanInput("include_deps")
+  const LT_USERNAME = getInput("LT_USERNAME")
+  const LT_ACCESS_KEY = getInput("LT_ACCESS_KEY")
+
+  return {
+    include_deps,
+    LT_USERNAME,
+    LT_ACCESS_KEY,
+  }
 }
 
 export const getCommandOptions = () => {}

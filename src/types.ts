@@ -41,3 +41,9 @@ export interface PackageJson {
 }
 
 export interface CommandOptions {}
+
+export interface ActionInputs {
+  LT_USERNAME: string
+  LT_ACCESS_KEY: string
+  include_deps: boolean
+}
