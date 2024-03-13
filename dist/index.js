@@ -20231,13 +20231,11 @@ var runLambdaTestCli = async () => {
   const { base_path } = getActionInputs();
   if (base_path) {
     process.chdir(base_path);
-    console.log(
-      // console current working directory
-      process.cwd()
-    );
+    console.log(`Changed directory to ${process.cwd()}`);
   }
-  const command = ["lambdatest-cypress", "run"];
-  await (0, import_exec.exec)(command.join(" "));
+  const command = "lambdatest-cypress run";
+  const args = [];
+  await (0, import_exec.exec)(command, args);
 };
 
 // src/index.ts
