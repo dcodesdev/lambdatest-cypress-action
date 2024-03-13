@@ -44,20 +44,26 @@ inputs:
     description: "The sync mode to be used."
   autostart:
     description: "Tunnel autostart."
+    default: false
   headless:
     description: "Run the tests in headless mode."
+    default: false
   network:
     description: "Capture network logs."
+    default: false
   exit_on_failure:
     description: "Exit with code 1 on failure."
+    default: false
   cypress_settings:
     description: "Pass in Cypress settings."
   geo_location:
     description: "The geo location to run the tests in."
   stop_on_failure:
     description: "Stop other tests if any test in session gets errored out."
+    default: false
   reject_unauthorized:
     description: "Default rejects self-signed SSL certificates in external requests."
+    default: false
   build_tags:
     description: "The tags to be associated with the LambdaTest build."
   system_env_variables:
@@ -66,8 +72,10 @@ inputs:
     description: "Path to a .env file."
   npm_force:
     description: "Force npm install."
+    default: false
   legacy_peer_deps:
     description: "Force npm install."
+    default: false
   vi_project:
     description: "Visual ui project name"
   vi_build:
@@ -80,18 +88,24 @@ inputs:
     description: "Dedicated proxy"
   npm_via_tunnel:
     description: "Install npm packages which are behind private VPN. Warning:This will increase the build duration of your tests."
+    default: false
   max_duration:
     description: "Maximum duration of the build."
   command_log:
     description: "Show command logs in the dashboard."
+    default: false
   retry_failed:
     description: "Retry failed tests in a new build."
+    default: false
   network_http2:
     description: "Capture HTTP2 network logs."
+    default: false
   network_ws:
     description: "Bypass web socket calls for network logs."
+    default: false
   network_sse:
     description: "Bypass SSE event calls for network logs."
+    default: false
 
 runs:
   using: "node20"
