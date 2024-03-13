@@ -46,12 +46,10 @@ inputs:
     description: "Tunnel autostart."
   headless:
     description: "Run the tests in headless mode."
-    default: false
   network:
     description: "Capture network logs."
   exit_on_failure:
     description: "Exit with code 1 on failure."
-    default: true
   cypress_settings:
     description: "Pass in Cypress settings."
   geo_location:

@@ -20199,19 +20199,93 @@ var moveDeps = async () => {
   await updateConfig(config);
 };
 var getActionInputs = () => {
-  const include_deps = (0, import_core.getBooleanInput)("include_deps");
   const LT_USERNAME = (0, import_core.getInput)("LT_USERNAME");
   const LT_ACCESS_KEY = (0, import_core.getInput)("LT_ACCESS_KEY");
+  const include_deps = (0, import_core.getBooleanInput)("include_deps");
   const base_path = (0, import_core.getInput)("base_path");
+  const cypress_config_file = (0, import_core.getInput)("cypress_config_file");
   const lambdatest_config_file = (0, import_core.getInput)("lambdatest_config_file");
+  const specs = (0, import_core.getInput)("specs");
+  const environment = (0, import_core.getInput)("environment");
   const build_name = (0, import_core.getInput)("build_name");
+  const tags = (0, import_core.getInput)("tags");
+  const parallels = (0, import_core.getInput)("parallels");
+  const env_vars = (0, import_core.getInput)("env_vars");
+  const tunnel = (0, import_core.getInput)("tunnel");
+  const tunnel_name = (0, import_core.getInput)("tunnel_name");
+  const browsers = (0, import_core.getInput)("browsers");
+  const build_identifier = (0, import_core.getInput)("build_identifier");
+  const ignore_files = (0, import_core.getInput)("ignore_files");
+  const sync_mode = (0, import_core.getInput)("sync_mode");
+  const autostart = (0, import_core.getBooleanInput)("autostart");
+  const headless = (0, import_core.getBooleanInput)("headless");
+  const network = (0, import_core.getBooleanInput)("network");
+  const exit_on_failure = (0, import_core.getBooleanInput)("exit_on_failure");
+  const cypress_settings = (0, import_core.getInput)("cypress_settings");
+  const geo_location = (0, import_core.getInput)("geo_location");
+  const stop_on_failure = (0, import_core.getBooleanInput)("stop_on_failure");
+  const reject_unauthorized = (0, import_core.getBooleanInput)("reject_unauthorized");
+  const build_tags = (0, import_core.getInput)("build_tags");
+  const system_env_variables = (0, import_core.getInput)("system_env_variables");
+  const env_file = (0, import_core.getInput)("env_file");
+  const npm_force = (0, import_core.getBooleanInput)("npm_force");
+  const legacy_peer_deps = (0, import_core.getBooleanInput)("legacy_peer_deps");
+  const vi_project = (0, import_core.getInput)("vi_project");
+  const vi_build = (0, import_core.getInput)("vi_build");
+  const vi_base = (0, import_core.getInput)("vi_base");
+  const resolution = (0, import_core.getInput)("resolution");
+  const dedicated_proxy = (0, import_core.getInput)("dedicated_proxy");
+  const npm_via_tunnel = (0, import_core.getBooleanInput)("npm_via_tunnel");
+  const max_duration = (0, import_core.getInput)("max_duration");
+  const command_log = (0, import_core.getBooleanInput)("command_log");
+  const retry_failed = (0, import_core.getBooleanInput)("retry_failed");
+  const network_http2 = (0, import_core.getBooleanInput)("network_http2");
+  const network_ws = (0, import_core.getBooleanInput)("network_ws");
+  const network_sse = (0, import_core.getBooleanInput)("network_sse");
   return {
     LT_USERNAME,
     LT_ACCESS_KEY,
     include_deps,
     base_path,
+    cypress_config_file,
     lambdatest_config_file,
-    build_name
+    specs,
+    environment,
+    build_name,
+    tags,
+    parallels,
+    env_vars,
+    tunnel,
+    tunnel_name,
+    browsers,
+    build_identifier,
+    ignore_files,
+    sync_mode,
+    autostart,
+    headless,
+    network,
+    exit_on_failure,
+    cypress_settings,
+    geo_location,
+    stop_on_failure,
+    reject_unauthorized,
+    build_tags,
+    system_env_variables,
+    env_file,
+    npm_force,
+    legacy_peer_deps,
+    vi_project,
+    vi_build,
+    vi_base,
+    resolution,
+    dedicated_proxy,
+    npm_via_tunnel,
+    max_duration,
+    command_log,
+    retry_failed,
+    network_http2,
+    network_ws,
+    network_sse
   };
 };
 
