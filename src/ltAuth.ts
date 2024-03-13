@@ -8,8 +8,8 @@ import { getLambdaTestConfig } from "./utils"
 export const updateCredentials = async () => {
   const { config, updateConfig } = await getLambdaTestConfig()
 
-  const username = getInput("USERNAME")
-  const accessKey = getInput("ACCESS_KEY")
+  const username = getInput("LT_USERNAME")
+  const accessKey = getInput("LT_ACCESS_KEY")
 
   const lambdatest_auth: LambdaTestAuth = {
     username,

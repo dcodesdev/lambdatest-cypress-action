@@ -20201,8 +20201,8 @@ var moveDeps = async () => {
 // src/ltAuth.ts
 var updateCredentials = async () => {
   const { config, updateConfig } = await getLambdaTestConfig();
-  const username = (0, import_core.getInput)("USERNAME");
-  const accessKey = (0, import_core.getInput)("ACCESS_KEY");
+  const username = (0, import_core.getInput)("LT_USERNAME");
+  const accessKey = (0, import_core.getInput)("LT_ACCESS_KEY");
   const lambdatest_auth = {
     username,
     access_key: accessKey

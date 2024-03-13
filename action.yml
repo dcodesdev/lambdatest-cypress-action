@@ -3,10 +3,10 @@ description: "Integrate Cypress tests with LambdaTest."
 author: "DawsonCodes"
 
 inputs:
-  USERNAME:
+  LT_USERNAME:
     description: "LambdaTest username."
     required: true
-  ACCESS_KEY:
+  LT_ACCESS_KEY:
     description: "LambdaTest access key."
     required: true
   include_deps:
