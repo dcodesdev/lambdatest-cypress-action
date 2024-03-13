@@ -46,4 +46,9 @@ export interface ActionInputs {
   LT_USERNAME: string
   LT_ACCESS_KEY: string
   include_deps: boolean
+
+  /**
+   * The directory where the lambdatest-config.json is located
+   */
+  base_path: string
 }

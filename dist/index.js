@@ -20202,10 +20202,12 @@ var getActionInputs = () => {
   const include_deps = (0, import_core.getBooleanInput)("include_deps");
   const LT_USERNAME = (0, import_core.getInput)("LT_USERNAME");
   const LT_ACCESS_KEY = (0, import_core.getInput)("LT_ACCESS_KEY");
+  const base_path = (0, import_core.getInput)("base_path");
   return {
-    include_deps,
     LT_USERNAME,
-    LT_ACCESS_KEY
+    LT_ACCESS_KEY,
+    include_deps,
+    base_path
   };
 };
 
@@ -20226,7 +20228,10 @@ var updateCredentials = async () => {
 // src/command.ts
 var import_exec = __toESM(require_exec());
 var runLambdaTestCli = async () => {
-  const {} = getActionInputs();
+  const { base_path } = getActionInputs();
+  if (base_path) {
+    process.chdir(base_path);
+  }
   const command = ["lambdatest-cypress", "run"];
   await (0, import_exec.exec)(command.join(" "));
 };

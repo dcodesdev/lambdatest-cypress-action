@@ -12,6 +12,8 @@ inputs:
   include_deps:
     description: "Moves dependencies and dev dependencies from your package.json file to the lambdatest-config.json file."
     default: false
+  base_path:
+    description: "The directory where the lambdatest-config.json file is located."
 
 runs:
   using: "node20"

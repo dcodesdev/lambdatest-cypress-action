@@ -41,11 +41,13 @@ export const getActionInputs = (): ActionInputs => {
   const include_deps = getBooleanInput("include_deps")
   const LT_USERNAME = getInput("LT_USERNAME")
   const LT_ACCESS_KEY = getInput("LT_ACCESS_KEY")
+  const base_path = getInput("base_path")
 
   return {
-    include_deps,
     LT_USERNAME,
     LT_ACCESS_KEY,
+    include_deps,
+    base_path,
   }
 }
 

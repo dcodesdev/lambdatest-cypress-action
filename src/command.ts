@@ -5,7 +5,11 @@ import { getActionInputs } from "./utils"
  * The function that runs the lambdatest-cypress cli
  */
 export const runLambdaTestCli = async () => {
-  const {} = getActionInputs()
+  const { base_path } = getActionInputs()
+
+  if (base_path) {
+    process.chdir(base_path)
+  }
 
   const command = ["lambdatest-cypress", "run"]
 
