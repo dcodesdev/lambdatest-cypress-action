@@ -9,6 +9,11 @@ export const runLambdaTestCli = async () => {
 
   if (base_path) {
     process.chdir(base_path)
+
+    console.log(
+      // console current working directory
+      process.cwd()
+    )
   }
 
   const command = ["lambdatest-cypress", "run"]
