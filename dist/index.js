@@ -20344,7 +20344,6 @@ var runLambdaTestCli = async () => {
   if (additionalArgs) {
     args.push(additionalArgs);
   }
-  console.log(`Running command: ${command} ${args.join(" ")}`);
   await (0, import_exec.exec)(command, args);
 };
 var argMaps = {

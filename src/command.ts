@@ -48,7 +48,6 @@ export const runLambdaTestCli = async () => {
     args.push(additionalArgs)
   }
 
-  console.log(`Running command: ${command} ${args.join(" ")}`)
   await exec(command, args)
 }
 
