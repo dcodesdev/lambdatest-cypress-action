@@ -20306,20 +20306,33 @@ var updateCredentials = async () => {
 // src/command.ts
 var import_exec = __toESM(require_exec());
 var runLambdaTestCli = async () => {
-  const { base_path, lambdatest_config_file, build_name } = getActionInputs();
+  const _a = getActionInputs(), { base_path, LT_ACCESS_KEY, LT_USERNAME, include_deps } = _a, cmdArgs = __objRest(_a, ["base_path", "LT_ACCESS_KEY", "LT_USERNAME", "include_deps"]);
   if (base_path) {
     process.chdir(base_path);
     console.log(`Changed directory to ${process.cwd()}`);
   }
   const command = "lambdatest-cypress run";
   const args = [];
-  if (lambdatest_config_file) {
-    args.push("--lambdatest-config-file", lambdatest_config_file);
+  for (let [key, value] of Object.entries(cmdArgs)) {
+    if (!value)
+      continue;
+    key = key.replace(/_/g, "-");
+    if (argMaps[key]) {
+      key = argMaps[key];
+    }
+    if (typeof value === "boolean") {
+      args.push(`--${key}`);
+    }
+    if (typeof value === "string") {
+      args.push(`--${key}`, value);
+    }
   }
-  if (build_name) {
-    args.push("--build-name", build_name);
-  }
+  console.log(`Running command: ${command} ${args.join(" ")}`);
   await (0, import_exec.exec)(command, args);
+};
+var argMaps = {
+  "env-vars": "env-variables",
+  "system-env-variables": "sys-env-variables"
 };
 
 // src/index.ts
