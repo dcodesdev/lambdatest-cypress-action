@@ -20203,11 +20203,13 @@ var getActionInputs = () => {
   const LT_USERNAME = (0, import_core.getInput)("LT_USERNAME");
   const LT_ACCESS_KEY = (0, import_core.getInput)("LT_ACCESS_KEY");
   const base_path = (0, import_core.getInput)("base_path");
+  const lambdatest_config_file = (0, import_core.getInput)("lambdatest_config_file");
   return {
     LT_USERNAME,
     LT_ACCESS_KEY,
     include_deps,
-    base_path
+    base_path,
+    lambdatest_config_file
   };
 };
 
@@ -20228,13 +20230,16 @@ var updateCredentials = async () => {
 // src/command.ts
 var import_exec = __toESM(require_exec());
 var runLambdaTestCli = async () => {
-  const { base_path } = getActionInputs();
+  const { base_path, lambdatest_config_file } = getActionInputs();
   if (base_path) {
     process.chdir(base_path);
     console.log(`Changed directory to ${process.cwd()}`);
   }
   const command = "lambdatest-cypress run";
   const args = [];
+  if (lambdatest_config_file) {
+    args.push("--lambdatest-config-file", lambdatest_config_file);
+  }
   await (0, import_exec.exec)(command, args);
 };
 

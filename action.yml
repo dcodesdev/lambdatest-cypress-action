@@ -14,6 +14,8 @@ inputs:
     default: false
   base_path:
     description: "The directory where the lambdatest-config.json file is located."
+  lambdatest_config_file:
+    description: "Path to the lambdatest-config.json file."
 
 runs:
   using: "node20"

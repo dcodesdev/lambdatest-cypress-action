@@ -50,5 +50,6 @@ export interface ActionInputs {
   /**
    * The directory where the lambdatest-config.json is located
    */
-  base_path: string
+  base_path?: string
+  lambdatest_config_file?: string
 }
