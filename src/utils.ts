@@ -1,7 +1,6 @@
 import { promises as fs } from "fs"
-import { LambdaTestConfig, PackageJson } from "./types"
+import { LambdaTestAuth, LambdaTestConfig, PackageJson } from "./types"
 import { getBooleanInput, getInput } from "@actions/core"
-import { env } from "process"
 
 export const getPackageJson = async () => {
   const packageJson = await fs.readFile("package.json", "utf-8")
@@ -132,4 +131,24 @@ export const getActionInputs = () => {
   }
 }
 
-export const getCommandOptions = () => {}
+/**
+ * Finds the lambdatest-config.json file and updates the credentials
+ * based on the GitHub action secrets
+ */
+export const updateCredentials = async () => {
+  const { config, updateConfig } = await getLambdaTestConfig()
+
+  const username = getInput("LT_USERNAME")
+  const accessKey = getInput("LT_ACCESS_KEY")
+
+  const lambdatest_auth: LambdaTestAuth = {
+    username,
+    access_key: accessKey,
+  }
+
+  config.lambdatest_auth = lambdatest_auth
+
+  await updateConfig(config)
+
+  return config
+}

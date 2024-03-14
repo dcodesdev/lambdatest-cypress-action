@@ -19002,7 +19002,7 @@ var require_core = __commonJS({
       process.env["PATH"] = `${inputPath}${path2.delimiter}${process.env["PATH"]}`;
     }
     exports2.addPath = addPath;
-    function getInput3(name, options) {
+    function getInput2(name, options) {
       const val = process.env[`INPUT_${name.replace(/ /g, "_").toUpperCase()}`] || "";
       if (options && options.required && !val) {
         throw new Error(`Input required and not supplied: ${name}`);
@@ -19012,9 +19012,9 @@ var require_core = __commonJS({
       }
       return val.trim();
     }
-    exports2.getInput = getInput3;
+    exports2.getInput = getInput2;
     function getMultilineInput(name, options) {
-      const inputs = getInput3(name, options).split("\n").filter((x) => x !== "");
+      const inputs = getInput2(name, options).split("\n").filter((x) => x !== "");
       if (options && options.trimWhitespace === false) {
         return inputs;
       }
@@ -19024,7 +19024,7 @@ var require_core = __commonJS({
     function getBooleanInput2(name, options) {
       const trueValue = ["true", "True", "TRUE"];
       const falseValue = ["false", "False", "FALSE"];
-      const val = getInput3(name, options);
+      const val = getInput2(name, options);
       if (trueValue.includes(val))
         return true;
       if (falseValue.includes(val))
@@ -20169,11 +20169,8 @@ var require_exec = __commonJS({
 
 // src/index.ts
 var import_path = __toESM(require("path"));
-var import_core3 = __toESM(require_core());
-var import_exec2 = __toESM(require_exec());
-
-// src/ltAuth.ts
 var import_core2 = __toESM(require_core());
+var import_exec2 = __toESM(require_exec());
 
 // src/utils.ts
 var import_fs = require("fs");
@@ -20290,12 +20287,10 @@ var getActionInputs = () => {
     args
   };
 };
-
-// src/ltAuth.ts
 var updateCredentials = async () => {
   const { config, updateConfig } = await getLambdaTestConfig();
-  const username = (0, import_core2.getInput)("LT_USERNAME");
-  const accessKey = (0, import_core2.getInput)("LT_ACCESS_KEY");
+  const username = (0, import_core.getInput)("LT_USERNAME");
+  const accessKey = (0, import_core.getInput)("LT_ACCESS_KEY");
   const lambdatest_auth = {
     username,
     access_key: accessKey
@@ -20371,9 +20366,9 @@ var main = async () => {
     await runLambdaTestCli();
   } catch (error) {
     if (error instanceof Error) {
-      return (0, import_core3.setFailed)(error.message);
+      return (0, import_core2.setFailed)(error.message);
     }
-    (0, import_core3.setFailed)(`Error: ${error}`);
+    (0, import_core2.setFailed)(`Error: ${error}`);
   }
 };
 main();

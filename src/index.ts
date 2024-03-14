@@ -2,8 +2,7 @@ import path from "path"
 import { setFailed } from "@actions/core"
 import { exec } from "@actions/exec"
 
-import { updateCredentials } from "./ltAuth"
-import { getActionInputs, moveDeps } from "./utils"
+import { getActionInputs, moveDeps, updateCredentials } from "./utils"
 import { runLambdaTestCli } from "./command"
 
 const main = async () => {
