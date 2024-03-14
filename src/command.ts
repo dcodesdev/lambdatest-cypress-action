@@ -56,7 +56,7 @@ export const runLambdaTestCli = async () => {
  * GitHub action input names
  *
  * Key: GitHub action input name (but with `-` instead of `_`)
- * Value: CMD arg name
+ * Value: LambdaTest cypress CLI arg name
  */
 const argMaps = {
   "env-vars": "env-variables",
