@@ -28,16 +28,16 @@ steps:
   - name: Run test on LambdaTest
     uses: dawsoncodes/lambdatest-cypress-action@v0.1.0
     with:
-      USERNAME: ${{ secrets.LT_USERNAME }}
-      ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
+      LT_USERNAME: ${{ secrets.LT_USERNAME }}
+      LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
       include_deps: true # Optional: Automatically installs package.json dependencies
 ```
 
 - Add your LambdaTest credentials to your repository secrets github.com/{username}/{repo}/settings/secrets
 
 ```bash
-USERNAME: your-lambdatest-username
-ACCESS_KEY: your-lambdatest-access-key
+LT_USERNAME: your-lambdatest-username
+LT_ACCESS_KEY: your-lambdatest-access-key
 ```
 
 - Push the changes to your repository
