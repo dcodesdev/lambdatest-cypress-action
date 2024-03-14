@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "lib": ["es2015"],
-    "module": "NodeNext",
+    "module": "Node16",
     "target": "ES5",
     "rootDir": "./src",
     "outDir": "./dist",
     "esModuleInterop": true,
-    "moduleResolution": "NodeNext"
+    "moduleResolution": "Node16"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"]
