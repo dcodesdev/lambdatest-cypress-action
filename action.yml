@@ -106,8 +106,6 @@ inputs:
   network_sse:
     description: "Bypass SSE event calls for network logs."
     default: false
-  args:
-    description: "Additional arguments to be passed to the LambdaTest CLI."
 
 runs:
   using: "node20"

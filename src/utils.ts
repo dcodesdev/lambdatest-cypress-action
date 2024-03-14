@@ -81,7 +81,6 @@ export const getActionInputs = () => {
   const network_http2 = getBooleanInput("network_http2")
   const network_ws = getBooleanInput("network_ws")
   const network_sse = getBooleanInput("network_sse")
-  const args = getInput("args")
 
   return {
     LT_USERNAME,
@@ -127,7 +126,6 @@ export const getActionInputs = () => {
     network_http2,
     network_ws,
     network_sse,
-    args,
   }
 }
 
