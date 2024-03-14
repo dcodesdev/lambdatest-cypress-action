@@ -66,7 +66,7 @@ inputs:
     default: false
   build_tags:
     description: "The tags to be associated with the LambdaTest build."
-  system_env_variables:
+  sys_env_variables:
     description: "System environment variables."
   env_file:
     description: "Path to a .env file."

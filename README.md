@@ -89,7 +89,7 @@ See [action.yml](./action.yml) for more detailed information.
 | `stop_on_failure`        | Stop other tests if any test in session gets errored out.                                                        | No       | `false` |
 | `reject_unauthorized`    | Default rejects self-signed SSL certificates in external requests.                                               | No       | `false` |
 | `build_tags`             | The tags to be associated with the LambdaTest build.                                                             | No       |         |
-| `system_env_variables`   | System environment variables.                                                                                    | No       |         |
+| `sys_env_variables`      | System environment variables.                                                                                    | No       |         |
 | `env_file`               | Path to a .env file.                                                                                             | No       |         |
 | `npm_force`              | Force npm install.                                                                                               | No       | `false` |
 | `legacy_peer_deps`       | Force npm install.                                                                                               | No       | `false` |

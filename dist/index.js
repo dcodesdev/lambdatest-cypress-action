@@ -20226,7 +20226,7 @@ var getActionInputs = () => {
   const stop_on_failure = (0, import_core.getBooleanInput)("stop_on_failure");
   const reject_unauthorized = (0, import_core.getBooleanInput)("reject_unauthorized");
   const build_tags = (0, import_core.getInput)("build_tags");
-  const system_env_variables = (0, import_core.getInput)("system_env_variables");
+  const sys_env_variables = (0, import_core.getInput)("sys_env_variables");
   const env_file = (0, import_core.getInput)("env_file");
   const npm_force = (0, import_core.getBooleanInput)("npm_force");
   const legacy_peer_deps = (0, import_core.getBooleanInput)("legacy_peer_deps");
@@ -20271,7 +20271,7 @@ var getActionInputs = () => {
     stop_on_failure,
     reject_unauthorized,
     build_tags,
-    system_env_variables,
+    sys_env_variables,
     env_file,
     npm_force,
     legacy_peer_deps,
@@ -20348,8 +20348,6 @@ var runLambdaTestCli = async () => {
   await (0, import_exec.exec)(command, args);
 };
 var argMaps = {
-  "env-vars": "env-variables",
-  "system-env-variables": "sys-env-variables",
   "access-key": "access_key",
   "tunnel-name": "tunnel_name",
   "ignore-files": "ignore_files",

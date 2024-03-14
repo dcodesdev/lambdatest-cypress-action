@@ -65,7 +65,7 @@ export const getActionInputs = () => {
   const stop_on_failure = getBooleanInput("stop_on_failure")
   const reject_unauthorized = getBooleanInput("reject_unauthorized")
   const build_tags = getInput("build_tags")
-  const system_env_variables = getInput("system_env_variables")
+  const sys_env_variables = getInput("sys_env_variables")
   const env_file = getInput("env_file")
   const npm_force = getBooleanInput("npm_force")
   const legacy_peer_deps = getBooleanInput("legacy_peer_deps")
@@ -111,7 +111,7 @@ export const getActionInputs = () => {
     stop_on_failure,
     reject_unauthorized,
     build_tags,
-    system_env_variables,
+    sys_env_variables,
     env_file,
     npm_force,
     legacy_peer_deps,
