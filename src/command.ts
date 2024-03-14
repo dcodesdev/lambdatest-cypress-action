@@ -55,7 +55,7 @@ export const runLambdaTestCli = async () => {
  * Includes command args that are different from the
  * GitHub action input names
  *
- * Key: GitHub action input name (but with `_` instead of `-`)
+ * Key: GitHub action input name (but with `-` instead of `_`)
  * Value: CMD arg name
  */
 const argMaps = {
