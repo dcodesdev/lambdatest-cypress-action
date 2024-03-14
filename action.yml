@@ -28,7 +28,7 @@ inputs:
     description: "The tags to be associated with the LambdaTest build."
   parallels:
     description: "The number of parallels to run the tests in."
-  env_vars:
+  env_variables:
     description: "The environment variables to be set."
   tunnel:
     description: "The tunnel to be used."

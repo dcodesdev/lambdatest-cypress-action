@@ -49,7 +49,7 @@ export const getActionInputs = () => {
   const build_name = getInput("build_name")
   const tags = getInput("tags")
   const parallels = getInput("parallels")
-  const env_vars = getInput("env_vars")
+  const env_variables = getInput("env_variables")
   const tunnel = getInput("tunnel")
   const tunnel_name = getInput("tunnel_name")
   const browsers = getInput("browsers")
@@ -95,7 +95,7 @@ export const getActionInputs = () => {
     build_name,
     tags,
     parallels,
-    env_vars,
+    env_variables,
     tunnel,
     tunnel_name,
     browsers,

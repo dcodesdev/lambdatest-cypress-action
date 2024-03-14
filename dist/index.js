@@ -20210,7 +20210,7 @@ var getActionInputs = () => {
   const build_name = (0, import_core.getInput)("build_name");
   const tags = (0, import_core.getInput)("tags");
   const parallels = (0, import_core.getInput)("parallels");
-  const env_vars = (0, import_core.getInput)("env_vars");
+  const env_variables = (0, import_core.getInput)("env_variables");
   const tunnel = (0, import_core.getInput)("tunnel");
   const tunnel_name = (0, import_core.getInput)("tunnel_name");
   const browsers = (0, import_core.getInput)("browsers");
@@ -20255,7 +20255,7 @@ var getActionInputs = () => {
     build_name,
     tags,
     parallels,
-    env_vars,
+    env_variables,
     tunnel,
     tunnel_name,
     browsers,

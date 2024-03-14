@@ -73,7 +73,7 @@ See [action.yml](./action.yml) for more detailed information.
 | `build_name`             | The name of the LambdaTest build.                                                                                | No       |         |
 | `tags`                   | The tags to be associated with the LambdaTest build.                                                             | No       |         |
 | `parallels`              | The number of parallels to run the tests in.                                                                     | No       |         |
-| `env_vars`               | The environment variables to be set.                                                                             | No       |         |
+| `env_variables`          | The environment variables to be set.                                                                             | No       |         |
 | `tunnel`                 | The tunnel to be used.                                                                                           | No       |         |
 | `tunnel_name`            | The name of the tunnel.                                                                                          | No       |         |
 | `browsers`               | The browsers to run the tests in the format platform:browser:version.                                            | No       |         |

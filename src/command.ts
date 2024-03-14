@@ -65,7 +65,6 @@ export const runLambdaTestCli = async () => {
  * Value: LambdaTest cypress CLI arg name
  */
 const argMaps = {
-  "env-vars": "env-variables",
   "system-env-variables": "sys-env-variables",
   "access-key": "access_key",
   "tunnel-name": "tunnel_name",
