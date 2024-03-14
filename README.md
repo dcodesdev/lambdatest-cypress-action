@@ -104,3 +104,22 @@ See [action.yml](./action.yml) for more detailed information.
 | `network_http2`          | Capture HTTP2 network logs.                                                                                      | No       | `false` |
 | `network_ws`             | Bypass web socket calls for network logs.                                                                        | No       | `false` |
 | `network_sse`            | Bypass SSE event calls for network logs.                                                                         | No       | `false` |
+
+## Documentation
+
+With the LambdaTest and Cypress integration document, you will learn how to get started with Cypress testing on the LambdaTest platform using the LambdaTest Cypress CLI.
+
+- [Prerequisites To Get Started](https://www.lambdatest.com/support/docs/getting-started-with-cypress-testing/#/prerequisites)
+- [Running Your First Cypress Test](https://www.lambdatest.com/support/docs/getting-started-with-cypress-testing/#/run-first-tests)
+- [View Results On LambdaTest](https://www.lambdatest.com/support/docs/getting-started-with-cypress-testing#view-results)
+- [Running Tests Locally](https://www.lambdatest.com/support/docs/getting-started-with-cypress-testing#run-locally)
+- [Parallel Cypress Testing](https://www.lambdatest.com/support/docs/getting-started-with-cypress-testing#parallel-cypress-testing)
+- [List Of LambdaTest Cypress CLI Commands](https://www.lambdatest.com/support/docs/getting-started-with-cypress-testing#cli-commands)
+
+## About LambdaTest
+
+[LambdaTest](https://www.lambdatest.com/) is a cloud based selenium grid infrastructure that can help you run automated cross browser compatibility tests on 2000+ different browser and operating system environments. LambdaTest supports all programming languages and frameworks that are supported with Selenium, and have easy integrations with all popular CI/CD platforms. It's a perfect solution to bring your [selenium automation testing](https://www.lambdatest.com/selenium-automation) to cloud based infrastructure that not only helps you increase your test coverage over multiple desktop and mobile browsers, but also allows you to cut down your test execution time by running tests on parallel.
+
+## License
+
+Licensed under the [MIT license](./LICENSE).
