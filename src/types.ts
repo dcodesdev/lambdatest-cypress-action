@@ -39,5 +39,3 @@ export interface PackageJson {
   dependencies: Record<string, string>
   [key: string]: unknown
 }
-
-export interface CommandOptions {}
