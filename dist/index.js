@@ -20349,7 +20349,22 @@ var runLambdaTestCli = async () => {
 };
 var argMaps = {
   "env-vars": "env-variables",
-  "system-env-variables": "sys-env-variables"
+  "system-env-variables": "sys-env-variables",
+  "access-key": "access_key",
+  "tunnel-name": "tunnel_name",
+  "ignore-files": "ignore_files",
+  "cypress-settings": "cypress_settings",
+  "geo-location": "geo_location",
+  "stop-on-failure": "stop_on_failure",
+  "reject-unauthorized": "reject_unauthorized",
+  "dedicated-proxy": "dedicated_proxy",
+  "npm-via-tunnel": "npm_via_tunnel",
+  "max-duration": "max_duration",
+  "command-log": "command_log",
+  "retry-failed": "retry_failed",
+  "network-http2": "network_http2",
+  "network-ws": "network_ws",
+  "network-sse": "network_sse"
 };
 
 // src/index.ts
