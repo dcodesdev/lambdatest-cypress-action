@@ -20118,7 +20118,7 @@ var require_exec = __commonJS({
     exports2.getExecOutput = exports2.exec = void 0;
     var string_decoder_1 = require("string_decoder");
     var tr = __importStar(require_toolrunner());
-    function exec2(commandLine, args, options) {
+    function exec3(commandLine, args, options) {
       return __awaiter(this, void 0, void 0, function* () {
         const commandArgs = tr.argStringToArray(commandLine);
         if (commandArgs.length === 0) {
@@ -20130,7 +20130,7 @@ var require_exec = __commonJS({
         return runner.exec();
       });
     }
-    exports2.exec = exec2;
+    exports2.exec = exec3;
     function getExecOutput(commandLine, args, options) {
       var _a, _b;
       return __awaiter(this, void 0, void 0, function* () {
@@ -20153,7 +20153,7 @@ var require_exec = __commonJS({
           }
         };
         const listeners = Object.assign(Object.assign({}, options === null || options === void 0 ? void 0 : options.listeners), { stdout: stdOutListener, stderr: stdErrListener });
-        const exitCode = yield exec2(commandLine, args, Object.assign(Object.assign({}, options), { listeners }));
+        const exitCode = yield exec3(commandLine, args, Object.assign(Object.assign({}, options), { listeners }));
         stdout += stdoutDecoder.end();
         stderr += stderrDecoder.end();
         return {
@@ -20168,15 +20168,13 @@ var require_exec = __commonJS({
 });
 
 // src/index.ts
-var import_core2 = __toESM(require_core());
-var import_exec = __toESM(require_exec());
 var import_path = __toESM(require("path"));
-
-// src/ltAuth.ts
-var import_core = __toESM(require_core());
+var import_core2 = __toESM(require_core());
+var import_exec2 = __toESM(require_exec());
 
 // src/utils.ts
 var import_fs = require("fs");
+var import_core = __toESM(require_core());
 var getPackageJson = async () => {
   const packageJson = await import_fs.promises.readFile("package.json", "utf-8");
   return JSON.parse(packageJson);
@@ -20197,12 +20195,102 @@ var moveDeps = async () => {
   config.run_settings.npm_dependencies = __spreadValues(__spreadValues(__spreadValues({}, config.run_settings.npm_dependencies), dependencies), devDependencies);
   await updateConfig(config);
 };
-
-// src/ltAuth.ts
+var getActionInputs = () => {
+  const LT_USERNAME = (0, import_core.getInput)("LT_USERNAME");
+  const LT_ACCESS_KEY = (0, import_core.getInput)("LT_ACCESS_KEY");
+  const include_deps = (0, import_core.getBooleanInput)("include_deps");
+  const base_path = (0, import_core.getInput)("base_path");
+  const cypress_config_file = (0, import_core.getInput)("cypress_config_file");
+  const lambdatest_config_file = (0, import_core.getInput)("lambdatest_config_file");
+  const specs = (0, import_core.getInput)("specs");
+  const environment = (0, import_core.getInput)("environment");
+  const build_name = (0, import_core.getInput)("build_name");
+  const tags = (0, import_core.getInput)("tags");
+  const parallels = (0, import_core.getInput)("parallels");
+  const env_vars = (0, import_core.getInput)("env_vars");
+  const tunnel = (0, import_core.getInput)("tunnel");
+  const tunnel_name = (0, import_core.getInput)("tunnel_name");
+  const browsers = (0, import_core.getInput)("browsers");
+  const build_identifier = (0, import_core.getInput)("build_identifier");
+  const ignore_files = (0, import_core.getInput)("ignore_files");
+  const sync_mode = (0, import_core.getInput)("sync_mode");
+  const autostart = (0, import_core.getBooleanInput)("autostart");
+  const headless = (0, import_core.getBooleanInput)("headless");
+  const network = (0, import_core.getBooleanInput)("network");
+  const exit_on_failure = (0, import_core.getBooleanInput)("exit_on_failure");
+  const cypress_settings = (0, import_core.getInput)("cypress_settings");
+  const geo_location = (0, import_core.getInput)("geo_location");
+  const stop_on_failure = (0, import_core.getBooleanInput)("stop_on_failure");
+  const reject_unauthorized = (0, import_core.getBooleanInput)("reject_unauthorized");
+  const build_tags = (0, import_core.getInput)("build_tags");
+  const system_env_variables = (0, import_core.getInput)("system_env_variables");
+  const env_file = (0, import_core.getInput)("env_file");
+  const npm_force = (0, import_core.getBooleanInput)("npm_force");
+  const legacy_peer_deps = (0, import_core.getBooleanInput)("legacy_peer_deps");
+  const vi_project = (0, import_core.getInput)("vi_project");
+  const vi_build = (0, import_core.getInput)("vi_build");
+  const vi_base = (0, import_core.getInput)("vi_base");
+  const resolution = (0, import_core.getInput)("resolution");
+  const dedicated_proxy = (0, import_core.getInput)("dedicated_proxy");
+  const npm_via_tunnel = (0, import_core.getBooleanInput)("npm_via_tunnel");
+  const max_duration = (0, import_core.getInput)("max_duration");
+  const command_log = (0, import_core.getBooleanInput)("command_log");
+  const retry_failed = (0, import_core.getBooleanInput)("retry_failed");
+  const network_http2 = (0, import_core.getBooleanInput)("network_http2");
+  const network_ws = (0, import_core.getBooleanInput)("network_ws");
+  const network_sse = (0, import_core.getBooleanInput)("network_sse");
+  const args = (0, import_core.getInput)("args");
+  return {
+    LT_USERNAME,
+    LT_ACCESS_KEY,
+    include_deps,
+    base_path,
+    cypress_config_file,
+    lambdatest_config_file,
+    specs,
+    environment,
+    build_name,
+    tags,
+    parallels,
+    env_vars,
+    tunnel,
+    tunnel_name,
+    browsers,
+    build_identifier,
+    ignore_files,
+    sync_mode,
+    autostart,
+    headless,
+    network,
+    exit_on_failure,
+    cypress_settings,
+    geo_location,
+    stop_on_failure,
+    reject_unauthorized,
+    build_tags,
+    system_env_variables,
+    env_file,
+    npm_force,
+    legacy_peer_deps,
+    vi_project,
+    vi_build,
+    vi_base,
+    resolution,
+    dedicated_proxy,
+    npm_via_tunnel,
+    max_duration,
+    command_log,
+    retry_failed,
+    network_http2,
+    network_ws,
+    network_sse,
+    args
+  };
+};
 var updateCredentials = async () => {
   const { config, updateConfig } = await getLambdaTestConfig();
-  const username = (0, import_core.getInput)("USERNAME");
-  const accessKey = (0, import_core.getInput)("ACCESS_KEY");
+  const username = (0, import_core.getInput)("LT_USERNAME");
+  const accessKey = (0, import_core.getInput)("LT_ACCESS_KEY");
   const lambdatest_auth = {
     username,
     access_key: accessKey
@@ -20212,24 +20300,70 @@ var updateCredentials = async () => {
   return config;
 };
 
+// src/command.ts
+var import_exec = __toESM(require_exec());
+var runLambdaTestCli = async () => {
+  const _a = getActionInputs(), {
+    base_path,
+    LT_ACCESS_KEY,
+    LT_USERNAME,
+    include_deps,
+    args: additionalArgs
+  } = _a, cmdArgs = __objRest(_a, [
+    "base_path",
+    "LT_ACCESS_KEY",
+    "LT_USERNAME",
+    "include_deps",
+    "args"
+  ]);
+  if (base_path) {
+    process.chdir(base_path);
+    console.log(`Changed directory to ${process.cwd()}`);
+  }
+  const command = "lambdatest-cypress run";
+  const args = [];
+  for (let [key, value] of Object.entries(cmdArgs)) {
+    if (!value)
+      continue;
+    key = key.replace(/_/g, "-");
+    if (argMaps[key]) {
+      key = argMaps[key];
+    }
+    if (typeof value === "boolean") {
+      args.push(`--${key}`);
+    }
+    if (typeof value === "string") {
+      args.push(`--${key}`, value);
+    }
+  }
+  if (additionalArgs) {
+    args.push(additionalArgs);
+  }
+  await (0, import_exec.exec)(command, args);
+};
+var argMaps = {
+  "env-vars": "env-variables",
+  "system-env-variables": "sys-env-variables"
+};
+
 // src/index.ts
 var main = async () => {
   try {
     await updateCredentials();
-    const includeDeps = (0, import_core2.getBooleanInput)("include_deps");
-    if (includeDeps) {
+    const { include_deps } = getActionInputs();
+    if (include_deps) {
       await moveDeps();
     }
-    await (0, import_exec.exec)(
+    await (0, import_exec2.exec)(
       "git clone https://github.com/Dawsoncodes/lambdatest-cypress-cli"
     );
-    await (0, import_exec.exec)("npm install", [], {
+    await (0, import_exec2.exec)("npm install", [], {
       cwd: import_path.default.join(process.cwd(), "lambdatest-cypress-cli")
     });
-    await (0, import_exec.exec)("npm link", [], {
+    await (0, import_exec2.exec)("npm link", [], {
       cwd: import_path.default.join(process.cwd(), "lambdatest-cypress-cli")
     });
-    await (0, import_exec.exec)("lambdatest-cypress run");
+    await runLambdaTestCli();
   } catch (error) {
     if (error instanceof Error) {
       return (0, import_core2.setFailed)(error.message);
