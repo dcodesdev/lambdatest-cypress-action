@@ -60,7 +60,7 @@ See [action.yml](./action.yml) for more detailed information.
 | `LT_ACCESS_KEY` | LambdaTest access key.                                                                                  | Yes      |         |
 | `include_deps`  | Moves dependencies and dev dependencies from your package.json file to the lambdatest-config.json file. | No       | `false` |
 | `base_path`     | The directory where the lambdatest-config.json file is located.                                         | No       |         |
-| `args`          | Manually pass in the CLI options                                                                        |
+| `args`          | Manually pass in the CLI options                                                                        | No       |         |
 
 ### CLI options
 
