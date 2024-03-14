@@ -1,5 +1,5 @@
 import { exec } from "@actions/exec"
-import { getActionInputs } from "./utils"
+import { getActionInputs, moveDeps, updateCredentials } from "./utils"
 
 /**
  * The function that runs the lambdatest-cypress cli
@@ -17,6 +17,12 @@ export const runLambdaTestCli = async () => {
   if (base_path) {
     process.chdir(base_path)
     console.log(`Changed directory to ${process.cwd()}`)
+  }
+
+  await updateCredentials()
+
+  if (include_deps) {
+    await moveDeps()
   }
 
   const command = "lambdatest-cypress run"

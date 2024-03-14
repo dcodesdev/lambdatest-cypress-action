@@ -20172,6 +20172,9 @@ var import_path = __toESM(require("path"));
 var import_core2 = __toESM(require_core());
 var import_exec2 = __toESM(require_exec());
 
+// src/command.ts
+var import_exec = __toESM(require_exec());
+
 // src/utils.ts
 var import_fs = require("fs");
 var import_core = __toESM(require_core());
@@ -20301,7 +20304,6 @@ var updateCredentials = async () => {
 };
 
 // src/command.ts
-var import_exec = __toESM(require_exec());
 var runLambdaTestCli = async () => {
   const _a = getActionInputs(), {
     base_path,
@@ -20319,6 +20321,10 @@ var runLambdaTestCli = async () => {
   if (base_path) {
     process.chdir(base_path);
     console.log(`Changed directory to ${process.cwd()}`);
+  }
+  await updateCredentials();
+  if (include_deps) {
+    await moveDeps();
   }
   const command = "lambdatest-cypress run";
   const args = [];
@@ -20349,11 +20355,6 @@ var argMaps = {
 // src/index.ts
 var main = async () => {
   try {
-    await updateCredentials();
-    const { include_deps } = getActionInputs();
-    if (include_deps) {
-      await moveDeps();
-    }
     await (0, import_exec2.exec)(
       "git clone https://github.com/Dawsoncodes/lambdatest-cypress-cli"
     );
