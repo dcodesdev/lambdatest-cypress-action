@@ -6,9 +6,7 @@ import { runLambdaTestCli } from "./command"
 
 const main = async () => {
   try {
-    await exec(
-      "git clone https://github.com/Dawsoncodes/lambdatest-cypress-cli"
-    )
+    await exec("git clone https://github.com/dcodesdev/lambdatest-cypress-cli")
 
     // Install deps
     await exec("npm install", [], {

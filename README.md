@@ -26,7 +26,7 @@ steps:
     uses: actions/checkout@v2
 
   - name: Run test on LambdaTest
-    uses: dawsoncodes/lambdatest-cypress-action@v0.1.0
+    uses: dcodesdev/lambdatest-cypress-action@v0.1.0
     with:
       LT_USERNAME: ${{ secrets.LT_USERNAME }}
       LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}

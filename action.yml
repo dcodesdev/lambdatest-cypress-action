@@ -1,6 +1,5 @@
 name: "LambdaTest Cypress action"
 description: "Integrate Cypress tests with LambdaTest."
-author: "DawsonCodes"
 
 inputs:
   LT_USERNAME:

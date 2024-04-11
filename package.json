@@ -15,12 +15,12 @@
     "action",
     "CI/CD"
   ],
-  "author": "DawsonCodes",
+  "author": "dcodesdev",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^20.11.27",
-    "esbuild": "^0.20.1",
-    "typescript": "^5.4.2"
+    "@types/node": "^20.12.7",
+    "esbuild": "^0.20.2",
+    "typescript": "^5.4.5"
   },
   "dependencies": {
     "@actions/core": "^1.10.1",
